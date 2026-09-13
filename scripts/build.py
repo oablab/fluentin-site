@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build fluentin.app: index (en), zh/ (zh-Hant), cn/ (zh-Hans), privacy/, terms/, support/.
+"""Build fluentin.app: index (en), zh/ (zh-Hant), privacy/, terms/, support/.
 Layout mirrors lossic.app / rocketbucket.app: sticky nav, centred hero with icon + serif h1 +
 badge + phone shot, feature grid, numbered steps, privacy card, FAQ, bottom CTA, footer.
 
@@ -64,14 +64,12 @@ footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:cente
 /* CJK typography (rocketbucket.app pattern): system CJK sans, looser leading, sans headings
    with positive tracking; a serif Latin face would fall back to Songti and look mixed. */
 html[lang="zh-Hant"] body{font-family:"PingFang TC","SF Pro TC",-apple-system,BlinkMacSystemFont,"Heiti TC","Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75}
-html[lang="zh-Hans"] body{font-family:"PingFang SC","SF Pro SC",-apple-system,BlinkMacSystemFont,"Heiti SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2,
-html[lang="zh-Hans"] .hero h1,html[lang="zh-Hans"] h2.section-title,html[lang="zh-Hans"] .bottom-cta h2,html[lang="zh-Hans"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hans"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
-html[lang="zh-Hant"] .hero h1 em,html[lang="zh-Hans"] .hero h1 em{font-style:normal}
-html[lang="zh-Hant"] .hero p.sub,html[lang="zh-Hans"] .hero p.sub{font-size:1.1rem;line-height:1.8}
-html[lang="zh-Hant"] .feature h3,html[lang="zh-Hans"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hans"] .step h3,html[lang="zh-Hant"] .faq summary,html[lang="zh-Hans"] .faq summary{letter-spacing:.01em}
-html[lang="zh-Hant"] .verdict b,html[lang="zh-Hans"] .verdict b{letter-spacing:.06em}
+html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
+html[lang="zh-Hant"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
+html[lang="zh-Hant"] .hero h1 em{font-style:normal}
+html[lang="zh-Hant"] .hero p.sub{font-size:1.1rem;line-height:1.8}
+html[lang="zh-Hant"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hant"] .faq summary{letter-spacing:.01em}
+html[lang="zh-Hant"] .verdict b{letter-spacing:.06em}
 /* legal pages */
 main.legal{max-width:720px;margin:0 auto;padding:3rem 1.4rem 4rem}main.legal a{color:var(--teal-deep)}
 main.legal h1{font-family:"New York",Georgia,serif;font-size:2rem;letter-spacing:-.02em;margin-bottom:.4rem}
@@ -96,7 +94,7 @@ T = {
             ("A social card for every phrase", "Who says it, where it lands, where it doesn't, and where it came from. Slang without the room it belongs in is a trap."),
             ("Real people, not voice actors", "Hear the phrase in the wild through YouTube — a New Yorker saying it in context, not a studio read."),
             ("Hints you control", "Nothing, the word count, first letters, or the whole sentence with one key word blanked out. You decide how hard."),
-            ("Your language, your key", "Prompts in English, 繁體中文 or 简体中文. Optional AI judge for grey-zone answers with your own Gemini key — no FluentIn servers.")],
+            ("Your language, your key", "Prompts in English or 繁體中文. Optional AI judge for grey-zone answers with your own Gemini key — no FluentIn servers.")],
   how_title="How a card works", how_sub="One phrase at a time, thirty seconds each.",
   steps=[("Read the situation", "“You're at the bodega counter and want the breakfast sandwich…” — in your language, never a translation to memorise."),
          ("Hold and say it", "Speak the English a local would use. Release when you're done."),
@@ -127,7 +125,7 @@ T = {
             ("每句都有社交說明卡", "誰會這樣說、什麼場合能講、什麼場合別講、從哪來的。不知道場合的俚語是陷阱。"),
             ("真人，不是配音員", "透過 YouTube 聽這句話在真實世界怎麼出現——紐約人在情境裡講出來，不是錄音室。"),
             ("提示你自己決定", "完全不提示、幾個字、每個字的第一個字母，或整句只遮一個關鍵字。難度你選。"),
-            ("你的語言、你的金鑰", "題目可用繁體中文、简体中文或 English。灰色地帶的答案可選用你自己的 Gemini 金鑰交給 AI 判——沒有 FluentIn 伺服器。")],
+            ("你的語言、你的金鑰", "題目可用繁體中文或 English。灰色地帶的答案可選用你自己的 Gemini 金鑰交給 AI 判——沒有 FluentIn 伺服器。")],
   how_title="一張卡怎麼玩", how_sub="一次一句，三十秒。",
   steps=[("看情境", "「你在 bodega 櫃台想點早餐三明治……」——用你的語言描述當下，不是給你一句翻譯背。"),
          ("按住、說出來", "用當地人會用的英文說。說完放開。"),
@@ -145,40 +143,9 @@ T = {
   cta_h="Fluent in 紐約是第一個包。", cta="即將上架 App Store",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
  ),
- "cn": dict(
-  lang="zh-Hans", path="/cn/", title="FluentIn — 讲得像当地人，去哪都行",
-  desc="FluentIn 教你一个城市、一个行业里的人真正怎么讲：看情境、开口说、让当地人的标准来判你。",
-  nav=["特色", "怎么玩", "常见问题"], nav_ids=["features", "how", "faq"],
-  h1='学校教你标准英语。<br>我们教你<em>那条街上的人</em>真正怎么讲。',
-  sub="地域俚语与行业行话，用「说」来练。用你的语言看情境、按住按钮、用英文说出来——然后知道当地人会不会这样讲。",
-  badge="iPhone · App Store 审核中", shots=("zh-Hans-02-prompt.png", "zh-Hans-03-reveal.png"),
-  features_title="跟别的英语 app 差在哪",
-  features=[("开口说，不是打字", "按住按钮讲话。识别器会朝每张卡的说法偏置，听得到俚语，而不是把它「纠正」成标准英文。"),
-            ("三种结果，不是两种", "地道——当地人就是这样讲。接近——意思对、说法不对。不是这个。中间那个是教科书给不了的反馈。"),
-            ("每句都有社交说明卡", "谁会这样说、什么场合能讲、什么场合别讲、从哪来的。不知道场合的俚语是陷阱。"),
-            ("真人，不是配音员", "通过 YouTube 听这句话在真实世界怎么出现——纽约人在情境里讲出来，不是录音室。"),
-            ("提示你自己决定", "完全不提示、几个词、每个词的第一个字母，或整句只遮一个关键词。难度你选。"),
-            ("你的语言、你的密钥", "题目可用简体中文、繁體中文或 English。灰色地带的答案可选用你自己的 Gemini 密钥交给 AI 判——没有 FluentIn 服务器。")],
-  how_title="一张卡怎么玩", how_sub="一次一句，三十秒。",
-  steps=[("看情境", "「你在 bodega 柜台想点早餐三明治……」——用你的语言描述当下，不是给你一句翻译背。"),
-         ("按住、说出来", "用当地人会用的英文说。说完松开。"),
-         ("拿到判定", "地道、接近、或不是这个——开了 AI 判题还会附一句理由。"),
-         ("看完整张卡", "完整写法、谁会这样说、什么场合安全，以及一段真人讲这句话的视频。")],
-  verdicts=[("ok", "地道", "当地人就是这样讲。"), ("close", "接近", "意思对，但当地人不会这样说。"), ("no", "不是这个", "意思不同，或没听到。")],
-  privacy_h="没有服务器。没有账号。不卖数据。",
-  privacy_p='语音在你的设备上用 Apple 的语音框架识别。唯二的网络连接都是你自己选择开启的：用你自己 API 密钥的 AI 判题，以及 YouTube 的嵌入播放器。<a href="/privacy/">隐私政策</a> · <a href="/terms/">使用条款</a>',
-  faq_title="常见问题",
-  faq=[("有哪些语言包？", "Fluent in 纽约——50 句：on line、bodega、chopped cheese、the super、walk-up、stabilized、OMNY、deadass、brick……伦敦、硅谷、华尔街、新加坡正在写。"),
-       ("一定要开口吗？", "不用。点题目里被遮住的词，直接打剩下的字母。判题是同一套。"),
-       ("AI 判题是什么？", "设备上比对不出来时，你的答案文字和这题的说法清单会用你在设置里贴的密钥发给 Gemini，回一个判定加一句理由。没有密钥 app 一样能用，判不出来的答案算错。"),
-       ("这些俚语用了安全吗？", "每张卡都写了什么场合能讲、什么场合别讲。有些卡标为「先听懂」：理解它，但不要主动用。"),
-       ("卡片是谁写的？", "我们起草，住在当地的人审过才上架。指正请寄 hello@fluentin.app。")],
-  cta_h="Fluent in 纽约是第一个包。", cta="即将上架 App Store",
-  footer_privacy="隐私政策", footer_terms="使用条款", footer_support="支持",
- ),
 }
 
-LANG_SWITCH = [("en", "/", "EN"), ("zh", "/zh/", "繁中"), ("cn", "/cn/", "简中")]
+LANG_SWITCH = [("en", "/", "EN"), ("zh", "/zh/", "繁中")]
 
 
 def head(t, url, extra_meta=""):
@@ -216,7 +183,7 @@ def landing(key):
     shots = "".join(f'<img src="/shots/{s}" alt="FluentIn screenshot" width="1290" height="2796" loading="lazy">' for s in t["shots"])
     redirect = ""
     if key == "en":
-        redirect = """<script>(function(){var p=new URLSearchParams(location.search);if(p.get("lang")==="en")return;var s=null;try{s=localStorage.getItem("fluentin-lang")}catch(e){}if(s){if(s!=="/")location.replace(s);return}var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];for(var i=0;i<L.length;i++){var l=L[i].toLowerCase();if(/^zh-(hant|tw|hk|mo)/.test(l)){location.replace("/zh/");return}if(/^zh/.test(l)){location.replace("/cn/");return}if(/^en/.test(l))return}})();</script>"""
+        redirect = """<script>(function(){var p=new URLSearchParams(location.search);if(p.get("lang")==="en")return;var s=null;try{s=localStorage.getItem("fluentin-lang")}catch(e){}if(s){if(s!=="/")location.replace(s);return}var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];for(var i=0;i<L.length;i++){var l=L[i].toLowerCase();if(/^zh/.test(l)){location.replace("/zh/");return}if(/^en/.test(l))return}})();</script>"""
     remember = """<script>document.addEventListener("click",function(e){var a=e.target.closest(".lang a");if(!a)return;try{localStorage.setItem("fluentin-lang",a.getAttribute("href"))}catch(e){}});</script>"""
     return f"""{head(t, "https://fluentin.app" + t['path'], redirect + remember)}
 <body>
@@ -346,7 +313,7 @@ def main():
     (ROOT / "privacy/index.html").write_text(legal("Privacy Policy", "FluentIn privacy policy: no servers, no accounts, on-device speech; optional AI judge with your own API key.", LAST_UPDATED, PRIVACY), encoding="utf-8")
     (ROOT / "terms/index.html").write_text(legal("Terms of Service", "FluentIn terms of service.", LAST_UPDATED, TERMS), encoding="utf-8")
     (ROOT / "support/index.html").write_text(legal("Support", "FluentIn support: contact and common questions.", LAST_UPDATED, SUPPORT), encoding="utf-8")
-    print("built: index, zh, cn, privacy, terms, support")
+    print("built: index, zh, privacy, terms, support")
 
 
 if __name__ == "__main__":

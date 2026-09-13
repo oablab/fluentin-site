@@ -8,7 +8,7 @@
 <meta property="og:title" content="FluentIn"><meta property="og:description" content="FluentIn 教你一個城市、一個行業裡的人真正怎麼講：看情境、開口說、讓當地人的標準來判你。">
 <meta property="og:image" content="https://fluentin.app/og.png"><meta property="og:url" content="https://fluentin.app/zh/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="alternate" hreflang="en" href="https://fluentin.app/"><link rel="alternate" hreflang="zh-Hant" href="https://fluentin.app/zh/"><link rel="alternate" hreflang="zh-Hans" href="https://fluentin.app/cn/"><link rel="alternate" hreflang="x-default" href="https://fluentin.app/">
+<link rel="alternate" hreflang="en" href="https://fluentin.app/"><link rel="alternate" hreflang="zh-Hant" href="https://fluentin.app/zh/"><link rel="alternate" hreflang="x-default" href="https://fluentin.app/">
 <link rel="icon" type="image/png" href="/icon.png">
 <script>document.addEventListener("click",function(e){var a=e.target.closest(".lang a");if(!a)return;try{localStorage.setItem("fluentin-lang",a.getAttribute("href"))}catch(e){}});</script><style>
 :root{--teal:#24666A;--teal-deep:#1B4F52;--teal-tint:#DFEEEE;--ink:#23302F;--muted:#66716F;--bg:#FFF8EE;--card:#FFFFFF;--border:rgba(36,102,106,.16);--shadow:0 24px 80px rgba(35,48,47,.18)}
@@ -63,14 +63,12 @@ footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:cente
 /* CJK typography (rocketbucket.app pattern): system CJK sans, looser leading, sans headings
    with positive tracking; a serif Latin face would fall back to Songti and look mixed. */
 html[lang="zh-Hant"] body{font-family:"PingFang TC","SF Pro TC",-apple-system,BlinkMacSystemFont,"Heiti TC","Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75}
-html[lang="zh-Hans"] body{font-family:"PingFang SC","SF Pro SC",-apple-system,BlinkMacSystemFont,"Heiti SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2,
-html[lang="zh-Hans"] .hero h1,html[lang="zh-Hans"] h2.section-title,html[lang="zh-Hans"] .bottom-cta h2,html[lang="zh-Hans"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hans"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
-html[lang="zh-Hant"] .hero h1 em,html[lang="zh-Hans"] .hero h1 em{font-style:normal}
-html[lang="zh-Hant"] .hero p.sub,html[lang="zh-Hans"] .hero p.sub{font-size:1.1rem;line-height:1.8}
-html[lang="zh-Hant"] .feature h3,html[lang="zh-Hans"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hans"] .step h3,html[lang="zh-Hant"] .faq summary,html[lang="zh-Hans"] .faq summary{letter-spacing:.01em}
-html[lang="zh-Hant"] .verdict b,html[lang="zh-Hans"] .verdict b{letter-spacing:.06em}
+html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
+html[lang="zh-Hant"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
+html[lang="zh-Hant"] .hero h1 em{font-style:normal}
+html[lang="zh-Hant"] .hero p.sub{font-size:1.1rem;line-height:1.8}
+html[lang="zh-Hant"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hant"] .faq summary{letter-spacing:.01em}
+html[lang="zh-Hant"] .verdict b{letter-spacing:.06em}
 /* legal pages */
 main.legal{max-width:720px;margin:0 auto;padding:3rem 1.4rem 4rem}main.legal a{color:var(--teal-deep)}
 main.legal h1{font-family:"New York",Georgia,serif;font-size:2rem;letter-spacing:-.02em;margin-bottom:.4rem}
@@ -82,7 +80,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 </head>
 <body>
 <nav><a class="brand" href="/zh/"><img src="/icon.png" alt="">FluentIn</a>
-<div class="links"><a href="#features">特色</a><a href="#how">怎麼玩</a><a href="#faq">常見問題</a><span class="lang"><a href="/" class="">EN</a> · <a href="/zh/" class="active">繁中</a> · <a href="/cn/" class="">简中</a></span></div></nav>
+<div class="links"><a href="#features">特色</a><a href="#how">怎麼玩</a><a href="#faq">常見問題</a><span class="lang"><a href="/" class="">EN</a> · <a href="/zh/" class="active">繁中</a></span></div></nav>
 <header class="hero">
   <img class="app-icon" src="/icon.png" alt="FluentIn icon">
   <h1>學校教你標準英語。<br>我們教你<em>那條街上的人</em>真正怎麼講。</h1>
@@ -92,7 +90,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 </header>
 <section class="features" id="features">
   <h2 class="section-title">跟別的英語 app 差在哪</h2>
-  <div class="features-grid"><div class="feature"><div class="icon">🎤</div><h3>開口說，不是打字</h3><p>按住按鈕講話。辨識器會朝每張卡的說法偏置，聽得到俚語，而不是把它「糾正」成標準英文。</p></div><div class="feature"><div class="icon">3</div><h3>三種結果，不是兩種</h3><p>地道——當地人就是這樣講。接近——意思對、說法不對。不是這個。中間那個是教科書給不了的回饋。</p></div><div class="feature"><div class="icon">☺</div><h3>每句都有社交說明卡</h3><p>誰會這樣說、什麼場合能講、什麼場合別講、從哪來的。不知道場合的俚語是陷阱。</p></div><div class="feature"><div class="icon">▶</div><h3>真人，不是配音員</h3><p>透過 YouTube 聽這句話在真實世界怎麼出現——紐約人在情境裡講出來，不是錄音室。</p></div><div class="feature"><div class="icon">_</div><h3>提示你自己決定</h3><p>完全不提示、幾個字、每個字的第一個字母，或整句只遮一個關鍵字。難度你選。</p></div><div class="feature"><div class="icon">⌨</div><h3>你的語言、你的金鑰</h3><p>題目可用繁體中文、简体中文或 English。灰色地帶的答案可選用你自己的 Gemini 金鑰交給 AI 判——沒有 FluentIn 伺服器。</p></div></div>
+  <div class="features-grid"><div class="feature"><div class="icon">🎤</div><h3>開口說，不是打字</h3><p>按住按鈕講話。辨識器會朝每張卡的說法偏置，聽得到俚語，而不是把它「糾正」成標準英文。</p></div><div class="feature"><div class="icon">3</div><h3>三種結果，不是兩種</h3><p>地道——當地人就是這樣講。接近——意思對、說法不對。不是這個。中間那個是教科書給不了的回饋。</p></div><div class="feature"><div class="icon">☺</div><h3>每句都有社交說明卡</h3><p>誰會這樣說、什麼場合能講、什麼場合別講、從哪來的。不知道場合的俚語是陷阱。</p></div><div class="feature"><div class="icon">▶</div><h3>真人，不是配音員</h3><p>透過 YouTube 聽這句話在真實世界怎麼出現——紐約人在情境裡講出來，不是錄音室。</p></div><div class="feature"><div class="icon">_</div><h3>提示你自己決定</h3><p>完全不提示、幾個字、每個字的第一個字母，或整句只遮一個關鍵字。難度你選。</p></div><div class="feature"><div class="icon">⌨</div><h3>你的語言、你的金鑰</h3><p>題目可用繁體中文或 English。灰色地帶的答案可選用你自己的 Gemini 金鑰交給 AI 判——沒有 FluentIn 伺服器。</p></div></div>
 </section>
 <section class="how" id="how">
   <h2 class="section-title">一張卡怎麼玩</h2>

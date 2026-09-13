@@ -8,9 +8,9 @@
 <meta property="og:title" content="FluentIn"><meta property="og:description" content="FluentIn teaches how people actually talk in a city or an industry: read the situation, say it out loud, get judged like a local would judge you.">
 <meta property="og:image" content="https://fluentin.app/og.png"><meta property="og:url" content="https://fluentin.app/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="alternate" hreflang="en" href="https://fluentin.app/"><link rel="alternate" hreflang="zh-Hant" href="https://fluentin.app/zh/"><link rel="alternate" hreflang="zh-Hans" href="https://fluentin.app/cn/"><link rel="alternate" hreflang="x-default" href="https://fluentin.app/">
+<link rel="alternate" hreflang="en" href="https://fluentin.app/"><link rel="alternate" hreflang="zh-Hant" href="https://fluentin.app/zh/"><link rel="alternate" hreflang="x-default" href="https://fluentin.app/">
 <link rel="icon" type="image/png" href="/icon.png">
-<script>(function(){var p=new URLSearchParams(location.search);if(p.get("lang")==="en")return;var s=null;try{s=localStorage.getItem("fluentin-lang")}catch(e){}if(s){if(s!=="/")location.replace(s);return}var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];for(var i=0;i<L.length;i++){var l=L[i].toLowerCase();if(/^zh-(hant|tw|hk|mo)/.test(l)){location.replace("/zh/");return}if(/^zh/.test(l)){location.replace("/cn/");return}if(/^en/.test(l))return}})();</script><script>document.addEventListener("click",function(e){var a=e.target.closest(".lang a");if(!a)return;try{localStorage.setItem("fluentin-lang",a.getAttribute("href"))}catch(e){}});</script><style>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("lang")==="en")return;var s=null;try{s=localStorage.getItem("fluentin-lang")}catch(e){}if(s){if(s!=="/")location.replace(s);return}var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];for(var i=0;i<L.length;i++){var l=L[i].toLowerCase();if(/^zh/.test(l)){location.replace("/zh/");return}if(/^en/.test(l))return}})();</script><script>document.addEventListener("click",function(e){var a=e.target.closest(".lang a");if(!a)return;try{localStorage.setItem("fluentin-lang",a.getAttribute("href"))}catch(e){}});</script><style>
 :root{--teal:#24666A;--teal-deep:#1B4F52;--teal-tint:#DFEEEE;--ink:#23302F;--muted:#66716F;--bg:#FFF8EE;--card:#FFFFFF;--border:rgba(36,102,106,.16);--shadow:0 24px 80px rgba(35,48,47,.18)}
 @media(prefers-color-scheme:dark){:root{--teal:#5FB0B4;--teal-deep:#8FD0D3;--teal-tint:#1E3335;--ink:#EEF2F1;--muted:#A3B0AE;--bg:#151D1D;--card:#1C2626;--border:rgba(95,176,180,.22);--shadow:0 24px 80px rgba(0,0,0,.55)}}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
@@ -63,14 +63,12 @@ footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:cente
 /* CJK typography (rocketbucket.app pattern): system CJK sans, looser leading, sans headings
    with positive tracking; a serif Latin face would fall back to Songti and look mixed. */
 html[lang="zh-Hant"] body{font-family:"PingFang TC","SF Pro TC",-apple-system,BlinkMacSystemFont,"Heiti TC","Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75}
-html[lang="zh-Hans"] body{font-family:"PingFang SC","SF Pro SC",-apple-system,BlinkMacSystemFont,"Heiti SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2,
-html[lang="zh-Hans"] .hero h1,html[lang="zh-Hans"] h2.section-title,html[lang="zh-Hans"] .bottom-cta h2,html[lang="zh-Hans"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
-html[lang="zh-Hant"] .hero h1,html[lang="zh-Hans"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
-html[lang="zh-Hant"] .hero h1 em,html[lang="zh-Hans"] .hero h1 em{font-style:normal}
-html[lang="zh-Hant"] .hero p.sub,html[lang="zh-Hans"] .hero p.sub{font-size:1.1rem;line-height:1.8}
-html[lang="zh-Hant"] .feature h3,html[lang="zh-Hans"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hans"] .step h3,html[lang="zh-Hant"] .faq summary,html[lang="zh-Hans"] .faq summary{letter-spacing:.01em}
-html[lang="zh-Hant"] .verdict b,html[lang="zh-Hans"] .verdict b{letter-spacing:.06em}
+html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
+html[lang="zh-Hant"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
+html[lang="zh-Hant"] .hero h1 em{font-style:normal}
+html[lang="zh-Hant"] .hero p.sub{font-size:1.1rem;line-height:1.8}
+html[lang="zh-Hant"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hant"] .faq summary{letter-spacing:.01em}
+html[lang="zh-Hant"] .verdict b{letter-spacing:.06em}
 /* legal pages */
 main.legal{max-width:720px;margin:0 auto;padding:3rem 1.4rem 4rem}main.legal a{color:var(--teal-deep)}
 main.legal h1{font-family:"New York",Georgia,serif;font-size:2rem;letter-spacing:-.02em;margin-bottom:.4rem}
@@ -82,7 +80,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 </head>
 <body>
 <nav><a class="brand" href="/"><img src="/icon.png" alt="">FluentIn</a>
-<div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a><span class="lang"><a href="/" class="active">EN</a> · <a href="/zh/" class="">繁中</a> · <a href="/cn/" class="">简中</a></span></div></nav>
+<div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a><span class="lang"><a href="/" class="active">EN</a> · <a href="/zh/" class="">繁中</a></span></div></nav>
 <header class="hero">
   <img class="app-icon" src="/icon.png" alt="FluentIn icon">
   <h1>School taught you standard English.<br>FluentIn teaches you how <em>that street</em> actually talks.</h1>
@@ -92,7 +90,7 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
 </header>
 <section class="features" id="features">
   <h2 class="section-title">What makes it different</h2>
-  <div class="features-grid"><div class="feature"><div class="icon">🎤</div><h3>Say it, don&#x27;t type it</h3><p>Hold the button and speak. The recogniser is biased toward each phrase so it hears the slang instead of “correcting” it.</p></div><div class="feature"><div class="icon">3</div><h3>Three verdicts, not two</h3><p>Local — that&#x27;s how they say it. Close — right meaning, wrong wording. Not it. The middle one is the feedback textbooks can&#x27;t give.</p></div><div class="feature"><div class="icon">☺</div><h3>A social card for every phrase</h3><p>Who says it, where it lands, where it doesn&#x27;t, and where it came from. Slang without the room it belongs in is a trap.</p></div><div class="feature"><div class="icon">▶</div><h3>Real people, not voice actors</h3><p>Hear the phrase in the wild through YouTube — a New Yorker saying it in context, not a studio read.</p></div><div class="feature"><div class="icon">_</div><h3>Hints you control</h3><p>Nothing, the word count, first letters, or the whole sentence with one key word blanked out. You decide how hard.</p></div><div class="feature"><div class="icon">⌨</div><h3>Your language, your key</h3><p>Prompts in English, 繁體中文 or 简体中文. Optional AI judge for grey-zone answers with your own Gemini key — no FluentIn servers.</p></div></div>
+  <div class="features-grid"><div class="feature"><div class="icon">🎤</div><h3>Say it, don&#x27;t type it</h3><p>Hold the button and speak. The recogniser is biased toward each phrase so it hears the slang instead of “correcting” it.</p></div><div class="feature"><div class="icon">3</div><h3>Three verdicts, not two</h3><p>Local — that&#x27;s how they say it. Close — right meaning, wrong wording. Not it. The middle one is the feedback textbooks can&#x27;t give.</p></div><div class="feature"><div class="icon">☺</div><h3>A social card for every phrase</h3><p>Who says it, where it lands, where it doesn&#x27;t, and where it came from. Slang without the room it belongs in is a trap.</p></div><div class="feature"><div class="icon">▶</div><h3>Real people, not voice actors</h3><p>Hear the phrase in the wild through YouTube — a New Yorker saying it in context, not a studio read.</p></div><div class="feature"><div class="icon">_</div><h3>Hints you control</h3><p>Nothing, the word count, first letters, or the whole sentence with one key word blanked out. You decide how hard.</p></div><div class="feature"><div class="icon">⌨</div><h3>Your language, your key</h3><p>Prompts in English or 繁體中文. Optional AI judge for grey-zone answers with your own Gemini key — no FluentIn servers.</p></div></div>
 </section>
 <section class="how" id="how">
   <h2 class="section-title">How a card works</h2>
