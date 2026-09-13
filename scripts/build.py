@@ -31,8 +31,13 @@ nav .lang{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav .lang a{marg
 .badge{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.8rem;font-size:.88rem;font-weight:600;color:var(--teal-deep);background:var(--teal-tint);border:1px solid var(--border);padding:.45rem 1rem;border-radius:999px}
 .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero .phones{display:flex;justify-content:center;gap:1.4rem;margin:3.2rem auto 0;flex-wrap:wrap}
-.hero .phones img{width:min(280px,64vw);height:auto;border-radius:34px;filter:drop-shadow(0 28px 56px rgba(35,48,47,.28))}
+.hero .rotator{position:relative;width:min(340px,80vw);aspect-ratio:852/1846;margin:3.2rem auto 0;border-radius:34px;overflow:hidden;box-shadow:0 28px 56px rgba(35,48,47,.28)}
+.hero .rotator img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.hero .rotator img.on{opacity:1}
+.hero .rotator .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+.hero .rotator .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.hero .rotator .dots i.on{background:#fff;width:16px;border-radius:3px}
+.hero .rotator.real{aspect-ratio:1290/2796}
 section.features{max-width:1080px;margin:0 auto;padding:4.6rem 1.5rem 1rem}
 h2.section-title{font-family:"New York",Georgia,"Times New Roman",serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:1.6rem;text-align:center}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem}
@@ -87,7 +92,7 @@ T = {
   nav=["Features", "How it works", "FAQ"], nav_ids=["features", "how", "faq"],
   h1='School taught you standard English.<br>FluentIn teaches you how <em>that street</em> actually talks.',
   sub="Regional slang and industry jargon, drilled by speaking. You read the situation in your language, hold the button, say it in English — and find out whether a local would have said it that way.",
-  badge="iPhone · in App Store review", shots=("en-02-prompt.png", "en-03-reveal.png"),
+  badge="iPhone · in App Store review", shots=("en-02-prompt.png", "en-03-reveal.png"), shots_real=True,
   features_title="What makes it different",
   features=[("Say it, don't type it", "Hold the button and speak. The recogniser is biased toward each phrase so it hears the slang instead of “correcting” it."),
             ("Three verdicts, not two", "Local — that's how they say it. Close — right meaning, wrong wording. Not it. The middle one is the feedback textbooks can't give."),
@@ -118,7 +123,7 @@ T = {
   nav=["特色", "怎麼玩", "常見問題"], nav_ids=["features", "how", "faq"],
   h1='學校教你標準英語。<br>我們教你<em>那條街上的人</em>真正怎麼講。',
   sub="地域俚語與行業行話，用「說」來練。用你的語言看情境、按住按鈕、用英文說出來——然後知道當地人會不會這樣講。",
-  badge="iPhone · App Store 審核中", shots=("zh-Hant-02-prompt.png", "zh-Hant-03-reveal.png"),
+  badge="iPhone · App Store 審核中", shots=("zh-hero-1.png", "zh-hero-2.png", "zh-hero-3.png", "zh-hero-4.png"), shots_real=False,
   features_title="跟別的英語 app 差在哪",
   features=[("開口說，不是打字", "按住按鈕講話。辨識器會朝每張卡的說法偏置，聽得到俚語，而不是把它「糾正」成標準英文。"),
             ("三種結果，不是兩種", "地道——當地人就是這樣講。接近——意思對、說法不對。不是這個。中間那個是教科書給不了的回饋。"),
@@ -180,7 +185,9 @@ def landing(key):
     steps = "".join(f'<div class="step"><div class="num">{i+1}</div><h3>{html.escape(h)}</h3><p>{html.escape(p)}</p></div>' for i, (h, p) in enumerate(t["steps"]))
     verdicts = "".join(f'<div class="verdict {c}"><b>{html.escape(l)}</b>{html.escape(p)}</div>' for c, l, p in t["verdicts"])
     faq = "".join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q, a in t["faq"])
-    shots = "".join(f'<img src="/shots/{s}" alt="FluentIn screenshot" width="1290" height="2796" loading="lazy">' for s in t["shots"])
+    shots = "".join(f'<img src="/shots/{s}" alt="FluentIn screenshot {i+1}" class="{"on" if i == 0 else ""}" loading="{"eager" if i == 0 else "lazy"}">' for i, s in enumerate(t["shots"]))
+    dots = "".join(f'<i class="{"on" if i == 0 else ""}"></i>' for i in range(len(t["shots"])))
+    rot_cls = "rotator real" if t.get("shots_real") else "rotator"
     redirect = ""
     if key == "en":
         redirect = """<script>(function(){var p=new URLSearchParams(location.search);if(p.get("lang")==="en")return;var s=null;try{s=localStorage.getItem("fluentin-lang")}catch(e){}if(s){if(s!=="/")location.replace(s);return}var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];for(var i=0;i<L.length;i++){var l=L[i].toLowerCase();if(/^zh/.test(l)){location.replace("/zh/");return}if(/^en/.test(l))return}})();</script>"""
@@ -193,8 +200,9 @@ def landing(key):
   <h1>{t['h1']}</h1>
   <p class="sub">{html.escape(t['sub'])}</p>
   <div class="badge">{html.escape(t['badge'])}</div>
-  <div class="phones">{shots}</div>
+  <div class="{rot_cls}" id="rotator" aria-roledescription="carousel">{shots}<div class="dots">{dots}</div></div>
 </header>
+<script>(function(){{var r=document.getElementById("rotator");if(!r)return;var imgs=r.querySelectorAll("img"),dots=r.querySelectorAll(".dots i"),i=0,n=imgs.length;if(n<2)return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;function show(k){{imgs[i].classList.remove("on");dots[i].classList.remove("on");i=k%n;imgs[i].classList.add("on");dots[i].classList.add("on")}}var t=setInterval(function(){{show(i+1)}},5000);r.addEventListener("pointerenter",function(){{clearInterval(t)}});r.addEventListener("pointerleave",function(){{t=setInterval(function(){{show(i+1)}},5000)}});dots.forEach(function(d,k){{d.style.cursor="pointer";d.addEventListener("click",function(){{show(k)}})}})}})();</script>
 <section class="features" id="features">
   <h2 class="section-title">{html.escape(t['features_title'])}</h2>
   <div class="features-grid">{feats}</div>

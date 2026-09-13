@@ -30,8 +30,13 @@ nav .lang{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav .lang a{marg
 .badge{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.8rem;font-size:.88rem;font-weight:600;color:var(--teal-deep);background:var(--teal-tint);border:1px solid var(--border);padding:.45rem 1rem;border-radius:999px}
 .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero .phones{display:flex;justify-content:center;gap:1.4rem;margin:3.2rem auto 0;flex-wrap:wrap}
-.hero .phones img{width:min(280px,64vw);height:auto;border-radius:34px;filter:drop-shadow(0 28px 56px rgba(35,48,47,.28))}
+.hero .rotator{position:relative;width:min(340px,80vw);aspect-ratio:852/1846;margin:3.2rem auto 0;border-radius:34px;overflow:hidden;box-shadow:0 28px 56px rgba(35,48,47,.28)}
+.hero .rotator img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.hero .rotator img.on{opacity:1}
+.hero .rotator .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+.hero .rotator .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.hero .rotator .dots i.on{background:#fff;width:16px;border-radius:3px}
+.hero .rotator.real{aspect-ratio:1290/2796}
 section.features{max-width:1080px;margin:0 auto;padding:4.6rem 1.5rem 1rem}
 h2.section-title{font-family:"New York",Georgia,"Times New Roman",serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:1.6rem;text-align:center}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem}
@@ -86,8 +91,9 @@ main.legal .card{border:1px solid var(--border);border-radius:12px;padding:1.1re
   <h1>School taught you standard English.<br>FluentIn teaches you how <em>that street</em> actually talks.</h1>
   <p class="sub">Regional slang and industry jargon, drilled by speaking. You read the situation in your language, hold the button, say it in English — and find out whether a local would have said it that way.</p>
   <div class="badge">iPhone · in App Store review</div>
-  <div class="phones"><img src="/shots/en-02-prompt.png" alt="FluentIn screenshot" width="1290" height="2796" loading="lazy"><img src="/shots/en-03-reveal.png" alt="FluentIn screenshot" width="1290" height="2796" loading="lazy"></div>
+  <div class="rotator real" id="rotator" aria-roledescription="carousel"><img src="/shots/en-02-prompt.png" alt="FluentIn screenshot 1" class="on" loading="eager"><img src="/shots/en-03-reveal.png" alt="FluentIn screenshot 2" class="" loading="lazy"><div class="dots"><i class="on"></i><i class=""></i></div></div>
 </header>
+<script>(function(){var r=document.getElementById("rotator");if(!r)return;var imgs=r.querySelectorAll("img"),dots=r.querySelectorAll(".dots i"),i=0,n=imgs.length;if(n<2)return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;function show(k){imgs[i].classList.remove("on");dots[i].classList.remove("on");i=k%n;imgs[i].classList.add("on");dots[i].classList.add("on")}var t=setInterval(function(){show(i+1)},5000);r.addEventListener("pointerenter",function(){clearInterval(t)});r.addEventListener("pointerleave",function(){t=setInterval(function(){show(i+1)},5000)});dots.forEach(function(d,k){d.style.cursor="pointer";d.addEventListener("click",function(){show(k)})})})();</script>
 <section class="features" id="features">
   <h2 class="section-title">What makes it different</h2>
   <div class="features-grid"><div class="feature"><div class="icon">🎤</div><h3>Say it, don&#x27;t type it</h3><p>Hold the button and speak. The recogniser is biased toward each phrase so it hears the slang instead of “correcting” it.</p></div><div class="feature"><div class="icon">3</div><h3>Three verdicts, not two</h3><p>Local — that&#x27;s how they say it. Close — right meaning, wrong wording. Not it. The middle one is the feedback textbooks can&#x27;t give.</p></div><div class="feature"><div class="icon">☺</div><h3>A social card for every phrase</h3><p>Who says it, where it lands, where it doesn&#x27;t, and where it came from. Slang without the room it belongs in is a trap.</p></div><div class="feature"><div class="icon">▶</div><h3>Real people, not voice actors</h3><p>Hear the phrase in the wild through YouTube — a New Yorker saying it in context, not a studio read.</p></div><div class="feature"><div class="icon">_</div><h3>Hints you control</h3><p>Nothing, the word count, first letters, or the whole sentence with one key word blanked out. You decide how hard.</p></div><div class="feature"><div class="icon">⌨</div><h3>Your language, your key</h3><p>Prompts in English or 繁體中文. Optional AI judge for grey-zone answers with your own Gemini key — no FluentIn servers.</p></div></div>
