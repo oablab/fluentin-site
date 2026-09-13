@@ -15,7 +15,7 @@ CSS = """
 :root{--teal:#24666A;--teal-deep:#1B4F52;--teal-tint:#DFEEEE;--ink:#23302F;--muted:#66716F;--bg:#FFF8EE;--card:#FFFFFF;--border:rgba(36,102,106,.16);--shadow:0 24px 80px rgba(35,48,47,.18)}
 @media(prefers-color-scheme:dark){:root{--teal:#5FB0B4;--teal-deep:#8FD0D3;--teal-tint:#1E3335;--ink:#EEF2F1;--muted:#A3B0AE;--bg:#151D1D;--card:#1C2626;--border:rgba(95,176,180,.22);--shadow:0 24px 80px rgba(0,0,0,.55)}}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang TC","PingFang SC","Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
 nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;max-width:1080px;margin:0 auto;padding:.9rem 1.5rem;backdrop-filter:saturate(180%) blur(16px)}
 nav .brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink)}
 nav .brand img{width:28px;height:28px;border-radius:7px}
@@ -25,7 +25,7 @@ nav .lang{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav .lang a{marg
 @media(max-width:720px){nav{flex-direction:column;gap:.45rem;padding:.7rem 1rem .65rem}nav .links{justify-content:center;gap:.2rem 1rem}nav .links a{margin-left:0;font-size:.86rem}nav .lang{margin-left:0}.hero{padding-top:2.6rem}}
 .hero{max-width:1080px;margin:0 auto;padding:4.2rem 1.5rem 0;text-align:center}
 .hero .app-icon{width:108px;height:108px;border-radius:24px;box-shadow:0 12px 36px rgba(35,48,47,.22);margin-bottom:1.6rem}
-.hero h1{font-family:"New York",Georgia,"Times New Roman","Songti TC","Songti SC",serif;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.18;letter-spacing:-.02em;font-weight:700;max-width:820px;margin:0 auto}
+.hero h1{font-family:"New York",Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.18;letter-spacing:-.02em;font-weight:700;max-width:820px;margin:0 auto}
 .hero h1 em{font-style:normal;background:linear-gradient(transparent 58%,rgba(36,102,106,.28) 58%,rgba(36,102,106,.28) 94%,transparent 94%);padding:0 .06em}
 .hero p.sub{color:var(--muted);font-size:1.16rem;max-width:700px;margin:1.2rem auto 0}
 .badge{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.8rem;font-size:.88rem;font-weight:600;color:var(--teal-deep);background:var(--teal-tint);border:1px solid var(--border);padding:.45rem 1rem;border-radius:999px}
@@ -34,7 +34,7 @@ nav .lang{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav .lang a{marg
 .hero .phones{display:flex;justify-content:center;gap:1.4rem;margin:3.2rem auto 0;flex-wrap:wrap}
 .hero .phones img{width:min(280px,64vw);height:auto;border-radius:34px;filter:drop-shadow(0 28px 56px rgba(35,48,47,.28))}
 section.features{max-width:1080px;margin:0 auto;padding:4.6rem 1.5rem 1rem}
-h2.section-title{font-family:"New York",Georgia,"Times New Roman","Songti TC","Songti SC",serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:1.6rem;text-align:center}
+h2.section-title{font-family:"New York",Georgia,"Times New Roman",serif;font-size:1.9rem;letter-spacing:-.02em;margin-bottom:1.6rem;text-align:center}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem}
 .feature{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.6rem}
 .feature .icon{width:42px;height:42px;border-radius:11px;background:var(--teal-tint);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--teal-deep);font-weight:800;font-family:Georgia,serif}
@@ -61,6 +61,17 @@ section.faq{max-width:720px;margin:0 auto;padding:4.2rem 1.5rem 2rem}
 .bottom-cta h2{font-family:"New York",Georgia,serif;font-size:1.8rem;letter-spacing:-.02em;margin-bottom:1.4rem}
 .cta.pending{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--muted);border:1.5px dashed var(--border);border-radius:12px;padding:.85rem 1.5rem;font-weight:600;font-size:.98rem;cursor:default;text-decoration:none}
 footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:center;color:var(--muted);font-size:.88rem}footer a{color:var(--teal-deep);text-decoration:none;margin:0 .2rem}
+/* CJK typography (rocketbucket.app pattern): system CJK sans, looser leading, sans headings
+   with positive tracking; a serif Latin face would fall back to Songti and look mixed. */
+html[lang="zh-Hant"] body{font-family:"PingFang TC","SF Pro TC",-apple-system,BlinkMacSystemFont,"Heiti TC","Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75}
+html[lang="zh-Hans"] body{font-family:"PingFang SC","SF Pro SC",-apple-system,BlinkMacSystemFont,"Heiti SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75}
+html[lang="zh-Hant"] .hero h1,html[lang="zh-Hant"] h2.section-title,html[lang="zh-Hant"] .bottom-cta h2,html[lang="zh-Hant"] .privacy-card h2,
+html[lang="zh-Hans"] .hero h1,html[lang="zh-Hans"] h2.section-title,html[lang="zh-Hans"] .bottom-cta h2,html[lang="zh-Hans"] .privacy-card h2{font-family:inherit;font-weight:800;letter-spacing:.01em}
+html[lang="zh-Hant"] .hero h1,html[lang="zh-Hans"] .hero h1{line-height:1.25;font-size:clamp(2rem,5.4vw,3rem)}
+html[lang="zh-Hant"] .hero h1 em,html[lang="zh-Hans"] .hero h1 em{font-style:normal}
+html[lang="zh-Hant"] .hero p.sub,html[lang="zh-Hans"] .hero p.sub{font-size:1.1rem;line-height:1.8}
+html[lang="zh-Hant"] .feature h3,html[lang="zh-Hans"] .feature h3,html[lang="zh-Hant"] .step h3,html[lang="zh-Hans"] .step h3,html[lang="zh-Hant"] .faq summary,html[lang="zh-Hans"] .faq summary{letter-spacing:.01em}
+html[lang="zh-Hant"] .verdict b,html[lang="zh-Hans"] .verdict b{letter-spacing:.06em}
 /* legal pages */
 main.legal{max-width:720px;margin:0 auto;padding:3rem 1.4rem 4rem}main.legal a{color:var(--teal-deep)}
 main.legal h1{font-family:"New York",Georgia,serif;font-size:2rem;letter-spacing:-.02em;margin-bottom:.4rem}
