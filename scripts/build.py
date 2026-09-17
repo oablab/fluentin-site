@@ -216,7 +216,7 @@ def landing(key):
 <section class="privacy"><div class="privacy-card"><h2>{html.escape(t['privacy_h'])}</h2><p>{t['privacy_p']}</p></div></section>
 <section class="faq" id="faq"><h2 class="section-title">{html.escape(t['faq_title'])}</h2><div class="faq">{faq}</div></section>
 <div class="bottom-cta"><h2>{html.escape(t['cta_h'])}</h2><span class="cta pending">{html.escape(t['cta'])}</span></div>
-<footer>© 2026 FluentIn · <a href="/privacy/">{t['footer_privacy']}</a> · <a href="/terms/">{t['footer_terms']}</a> · <a href="/support/">{t['footer_support']}</a> · <a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></footer>
+<footer>© 2026 FluentIn · <a href="/privacy/">{t['footer_privacy']}</a> · <a href="/terms/">{t['footer_terms']}</a> · <a href="/support/">{t['footer_support']}</a> · <a href="mailto:tautiu.dev+fluentin@gmail.com">tautiu.dev+fluentin@gmail.com</a></footer>
 </body></html>
 """
 
@@ -261,7 +261,7 @@ PRIVACY = """
   <p>If this policy changes, the new version is published at this address with a new date, and material changes are noted in the app's release notes.</p>
 
   <h2>Contact</h2>
-  <p><a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></p>
+  <p><a href="mailto:tautiu.dev+fluentin@gmail.com">tautiu.dev+fluentin@gmail.com</a></p>
 """
 
 TERMS = """
@@ -294,12 +294,12 @@ TERMS = """
   <p>We may update these terms; the current version always lives at this address, and material changes will be noted in the app's release notes. You can stop using FluentIn at any time by deleting it, which removes all local data.</p>
 
   <h2>Contact</h2>
-  <p><a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></p>
+  <p><a href="mailto:tautiu.dev+fluentin@gmail.com">tautiu.dev+fluentin@gmail.com</a></p>
 """
 
 SUPPORT = """
   <h2>Contact</h2>
-  <p>Email <a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a>. Include your iOS version and, if it concerns a specific phrase, the card shown on the answer screen.</p>
+  <p>Email <a href="mailto:tautiu.dev+fluentin@gmail.com">tautiu.dev+fluentin@gmail.com</a>. Include your iOS version and, if it concerns a specific phrase, the card shown on the answer screen.</p>
 
   <h2>Common questions</h2>
   <p><strong>The app didn't hear me.</strong> Hold the button for the whole phrase and release when you are done. Check Settings → Privacy &amp; Security → Microphone and Speech Recognition are on for FluentIn. In loud places, tap the blanked word and type instead.</p>
