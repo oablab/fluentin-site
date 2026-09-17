@@ -24,7 +24,6 @@ nav .links a{color:var(--muted);text-decoration:none;margin-left:1.4rem;font-siz
 nav .lang{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav .lang a{margin:0 .15rem;text-decoration:none;color:var(--muted)}nav .lang a.active{color:var(--ink);font-weight:700}
 @media(max-width:720px){nav{flex-direction:column;gap:.45rem;padding:.7rem 1rem .65rem}nav .links{justify-content:center;gap:.2rem 1rem}nav .links a{margin-left:0;font-size:.86rem}nav .lang{margin-left:0}.hero{padding-top:2.6rem}}
 .hero{max-width:1080px;margin:0 auto;padding:4.2rem 1.5rem 0;text-align:center}
-.hero .app-icon{width:108px;height:108px;border-radius:24px;box-shadow:0 12px 36px rgba(35,48,47,.22);margin-bottom:1.6rem}
 .hero h1{font-family:"New York",Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.18;letter-spacing:-.02em;font-weight:700;max-width:820px;margin:0 auto}
 .hero h1 em{font-style:normal;background:linear-gradient(transparent 58%,rgba(36,102,106,.28) 58%,rgba(36,102,106,.28) 94%,transparent 94%);padding:0 .06em}
 .hero p.sub{color:var(--muted);font-size:1.16rem;max-width:700px;margin:1.2rem auto 0}
@@ -110,10 +109,11 @@ T = {
   privacy_p='Speech is recognised on your device with Apple\'s speech framework. The only network calls are the ones you opt into: an AI judge with your own API key, and YouTube\'s embedded player. <a href="/privacy/">Privacy policy</a> · <a href="/terms/">Terms</a>',
   faq_title="Questions",
   faq=[("Which packs exist?", "Fluent in New York — 50 phrases: on line, bodega, chopped cheese, the super, walk-up, stabilized, OMNY, deadass, brick… London, Silicon Valley, Wall Street and Singapore are being written."),
+       ("Why “ask a friend”? Can't the app just show me the answer?", "Because FluentIn isn't a question bank, and we don't want you racing through it. When you miss one, the app doesn't reveal the answer. It hands you a card of the question to take to someone — a friend who lives there, or your AI assistant — and you come back and try again. Going to find the answer is the part that makes the phrase stick. A “show me the answer” option exists in Settings and is deliberately off for now."),
        ("Do I need to speak?", "No. Tap the blanked word and type the missing letters instead. The judge is the same."),
        ("What's the AI judge?", "When the on-device matcher can't decide, your transcribed answer and the exercise's phrase list go to Gemini with the API key you paste in Settings, and you get a verdict plus a one-line reason. Without a key the app is fully usable; undecided answers count as wrong."),
        ("Is the slang safe to use?", "Each card says where it lands and where it doesn't. Some cards are marked recognition-first: understand them, don't lead with them."),
-       ("Who writes the cards?", "We draft them, and people who live there review them before a pack ships. Corrections: hello@fluentin.app.")],
+       ("Who writes the cards?", "A committee of AI agents built from several frontier models. It proposes each phrase, debates it, reviews it and proofreads it on its own — no single model gets the last word. We know that can't cover every real street or every trade, so the cards are open to the community: if an answer looks wrong or debatable, write to tautiu.dev+fluentin@gmail.com.")],
   cta_h="Fluent in New York is the first pack.", cta="Coming to the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
  ),
@@ -141,16 +141,17 @@ T = {
   privacy_p='語音在你的裝置上用 Apple 的語音框架辨識。唯二的網路連線都是你自己選擇開啟的：用你自己 API 金鑰的 AI 判題，以及 YouTube 的嵌入播放器。<a href="/privacy/">隱私政策</a> · <a href="/terms/">使用條款</a>',
   faq_title="常見問題",
   faq=[("有哪些語言包？", "Fluent in 紐約——50 句：on line、bodega、chopped cheese、the super、walk-up、stabilized、OMNY、deadass、brick……倫敦、矽谷、華爾街、新加坡正在寫。"),
+       ("為什麼有「找朋友求救」，不能直接告訴我答案嗎？", "因為 FluentIn 不是題庫，我們不希望你快速刷題。答錯的時候，app 不會公布答案，而是給你一張這題的卡片，讓你拿去問——問住在那裡的朋友，或問你的 AI 助理都行——然後回來再試一次。這段自己去找答案的過程，才是讓一句話真正記住的原因。直接看答案的選項在設定裡，目前刻意關閉。"),
        ("一定要開口嗎？", "不用。點題目裡被遮住的字，直接打剩下的字母。判題是同一套。"),
        ("AI 判題是什麼？", "裝置上比對不出來時，你的答案文字和這題的說法清單會用你在設定裡貼的金鑰送給 Gemini，回一個判定加一句理由。沒有金鑰 app 一樣能用，判不出來的答案算錯。"),
        ("這些俚語用了安全嗎？", "每張卡都寫了什麼場合能講、什麼場合別講。有些卡標為「先聽懂」：理解它，但不要主動用。"),
-       ("卡片是誰寫的？", "我們起草，住在當地的人審過才上架。指正請寄 hello@fluentin.app。")],
+       ("卡片是誰寫的？", "我們設計了一個 AI Agents 委員會，由各家前沿模型組成。從題目的提案、討論、審核到校對，全部由這個委員會自主完成。我們清楚知道這不見得能覆蓋真實街道或行業的每個場景，所以也開放社群反饋：如果你發現哪一題的答案不對或有爭議，歡迎寫信告訴我們：tautiu.dev+fluentin@gmail.com。")],
   cta_h="Fluent in 紐約是第一個包。", cta="即將上架 App Store",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
  ),
 }
 
-LANG_SWITCH = [("en", "/", "EN"), ("zh", "/zh/", "繁中")]
+LANG_SWITCH = [("en", "/", "English"), ("zh", "/zh/", "繁體中文")]
 
 
 def head(t, url, extra_meta=""):
@@ -196,7 +197,6 @@ def landing(key):
 <body>
 {nav(t, key)}
 <header class="hero">
-  <img class="app-icon" src="/icon.png" alt="FluentIn icon">
   <h1>{t['h1']}</h1>
   <p class="sub">{html.escape(t['sub'])}</p>
   <div class="badge">{html.escape(t['badge'])}</div>
@@ -216,7 +216,7 @@ def landing(key):
 <section class="privacy"><div class="privacy-card"><h2>{html.escape(t['privacy_h'])}</h2><p>{t['privacy_p']}</p></div></section>
 <section class="faq" id="faq"><h2 class="section-title">{html.escape(t['faq_title'])}</h2><div class="faq">{faq}</div></section>
 <div class="bottom-cta"><h2>{html.escape(t['cta_h'])}</h2><span class="cta pending">{html.escape(t['cta'])}</span></div>
-<footer>© 2026 FluentIn · <a href="/privacy/">{t['footer_privacy']}</a> · <a href="/terms/">{t['footer_terms']}</a> · <a href="/support/">{t['footer_support']}</a> · <a href="mailto:hello@fluentin.app">hello@fluentin.app</a></footer>
+<footer>© 2026 FluentIn · <a href="/privacy/">{t['footer_privacy']}</a> · <a href="/terms/">{t['footer_terms']}</a> · <a href="/support/">{t['footer_support']}</a> · <a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></footer>
 </body></html>
 """
 
@@ -261,7 +261,7 @@ PRIVACY = """
   <p>If this policy changes, the new version is published at this address with a new date, and material changes are noted in the app's release notes.</p>
 
   <h2>Contact</h2>
-  <p><a href="mailto:privacy@fluentin.app">privacy@fluentin.app</a></p>
+  <p><a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></p>
 """
 
 TERMS = """
@@ -294,12 +294,12 @@ TERMS = """
   <p>We may update these terms; the current version always lives at this address, and material changes will be noted in the app's release notes. You can stop using FluentIn at any time by deleting it, which removes all local data.</p>
 
   <h2>Contact</h2>
-  <p><a href="mailto:hello@fluentin.app">hello@fluentin.app</a></p>
+  <p><a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></p>
 """
 
 SUPPORT = """
   <h2>Contact</h2>
-  <p>Email <a href="mailto:support@fluentin.app">support@fluentin.app</a>. Include your iOS version and, if it concerns a specific phrase, the card shown on the answer screen.</p>
+  <p>Email <a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a>. Include your iOS version and, if it concerns a specific phrase, the card shown on the answer screen.</p>
 
   <h2>Common questions</h2>
   <p><strong>The app didn't hear me.</strong> Hold the button for the whole phrase and release when you are done. Check Settings → Privacy &amp; Security → Microphone and Speech Recognition are on for FluentIn. In loud places, tap the blanked word and type instead.</p>
