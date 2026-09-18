@@ -10,6 +10,8 @@ import html, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 APP_REPO = ROOT.parent / "fluentin"
 LAST_UPDATED = "September 12, 2026"
+# App Store: id 6811386198. zh page deep-links the TW storefront; en page lets Apple pick the storefront.
+STORE_URL = {"en": "https://apps.apple.com/app/fluentin/id6811386198", "zh": "https://apps.apple.com/tw/app/fluentin/id6811386198"}
 
 CSS = """
 :root{--teal:#24666A;--teal-deep:#1B4F52;--teal-tint:#DFEEEE;--ink:#23302F;--muted:#66716F;--bg:#FFF8EE;--card:#FFFFFF;--border:rgba(36,102,106,.16);--shadow:0 24px 80px rgba(35,48,47,.18)}
@@ -63,6 +65,8 @@ section.faq{max-width:720px;margin:0 auto;padding:4.2rem 1.5rem 2rem}
 .faq details p{color:var(--muted);font-size:.95rem;padding-top:.6rem}
 .bottom-cta{text-align:center;padding:4.5rem 1.5rem;background:linear-gradient(180deg,transparent,var(--teal-tint))}
 .bottom-cta h2{font-family:"New York",Georgia,serif;font-size:1.8rem;letter-spacing:-.02em;margin-bottom:1.4rem}
+.cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal);color:#fff;border-radius:12px;padding:.85rem 1.6rem;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.12)}.cta:hover{background:var(--teal-deep)}
+a.badge{text-decoration:none}a.badge:hover{background:var(--teal);color:#fff}
 .cta.pending{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--muted);border:1.5px dashed var(--border);border-radius:12px;padding:.85rem 1.5rem;font-weight:600;font-size:.98rem;cursor:default;text-decoration:none}
 footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:center;color:var(--muted);font-size:.88rem}footer a{color:var(--teal-deep);text-decoration:none;margin:0 .2rem}
 /* CJK typography (rocketbucket.app pattern): system CJK sans, looser leading, sans headings
@@ -91,7 +95,7 @@ T = {
   nav=["Features", "How it works", "FAQ"], nav_ids=["features", "how", "faq"],
   h1='School taught you standard English.<br>FluentIn teaches you how <em>that street</em> actually talks.',
   sub="Regional slang and industry jargon, drilled by speaking. You read the situation in your language, hold the button, say it in English — and find out whether a local would have said it that way.",
-  badge="iPhone · in App Store review", shots=("en-02-prompt.png", "en-03-reveal.png"), shots_real=True,
+  badge="iPhone · now on the App Store", shots=("en-02-prompt.png", "en-03-reveal.png"), shots_real=True,
   features_title="What makes it different",
   features=[("Say it, don't type it", "Hold the button and speak. The recogniser is biased toward each phrase so it hears the slang instead of “correcting” it."),
             ("Three verdicts, not two", "Local — that's how they say it. Close — right meaning, wrong wording. Not it. The middle one is the feedback textbooks can't give."),
@@ -115,7 +119,7 @@ T = {
        ("Is the slang safe to use?", "Each card says where it lands and where it doesn't. Some cards are marked recognition-first: understand them, don't lead with them."),
        ("Who writes the cards?", "A committee of AI agents built from several frontier models. It proposes each phrase, debates it, reviews it and proofreads it on its own — no single model gets the last word. We know that can't cover every real street or every trade, so the cards are open to the community: if an answer looks wrong or debatable, write to tautiu.dev+fluentin@gmail.com."),
        ("I'm a local. Can I submit phrases myself?", "That's the plan. We're designing a way for players who have cleared a pack and earned its Dark badge — every card, no hints — to submit phrases. Each one is reviewed before it joins the pack.")],
-  cta_h="Fluent in New York is the first pack.", cta="Coming to the App Store",
+  cta_h="Fluent in New York is the first pack.", cta="Download on the App Store",
   footer_privacy="Privacy", footer_terms="Terms", footer_support="Support",
  ),
  "zh": dict(
@@ -124,7 +128,7 @@ T = {
   nav=["特色", "怎麼玩", "常見問題"], nav_ids=["features", "how", "faq"],
   h1='學校教你標準英語。<br>我們教你<em>那條街上的人</em>真正怎麼講。',
   sub="地域俚語與行業行話，用「說」來練。用你的語言看情境、按住按鈕、用英文說出來——然後知道當地人會不會這樣講。",
-  badge="iPhone · App Store 審核中", shots=("zh-hero-1.png", "zh-hero-2.png", "zh-hero-3.png", "zh-hero-4.png"), shots_real=False,
+  badge="iPhone · App Store 已上架", shots=("zh-hero-1.png", "zh-hero-2.png", "zh-hero-3.png", "zh-hero-4.png"), shots_real=False,
   features_title="跟別的英語 app 差在哪",
   features=[("開口說，不是打字", "按住按鈕講話。辨識器會朝每張卡的說法偏置，聽得到俚語，而不是把它「糾正」成標準英文。"),
             ("三種結果，不是兩種", "地道——當地人就是這樣講。接近——意思對、說法不對。不是這個。中間那個是教科書給不了的回饋。"),
@@ -148,7 +152,7 @@ T = {
        ("這些俚語用了安全嗎？", "每張卡都寫了什麼場合能講、什麼場合別講。有些卡標為「先聽懂」：理解它，但不要主動用。"),
        ("卡片是誰寫的？", "我們設計了一個 AI Agents 委員會，由各家前沿模型組成。從題目的提案、討論、審核到校對，全部由這個委員會自主完成。我們清楚知道這不見得能覆蓋真實街道或行業的每個場景，所以也開放社群反饋：如果你發現哪一題的答案不對或有爭議，歡迎寫信告訴我們：tautiu.dev+fluentin@gmail.com。"),
        ("我是本地人，我可以自己提交題目嗎？", "會的。我們正在設計讓通關拿到「暗黑」徽章的玩家——整包全對、不用提示——自己提交題目，審核通過後就會加入題庫。")],
-  cta_h="Fluent in 紐約是第一個包。", cta="即將上架 App Store",
+  cta_h="Fluent in 紐約是第一個包。", cta="前往 App Store 下載",
   footer_privacy="隱私政策", footer_terms="使用條款", footer_support="支援",
  ),
 }
@@ -201,7 +205,7 @@ def landing(key):
 <header class="hero">
   <h1>{t['h1']}</h1>
   <p class="sub">{html.escape(t['sub'])}</p>
-  <div class="badge">{html.escape(t['badge'])}</div>
+  <a class="badge" href="{STORE_URL[key]}">{html.escape(t['badge'])}</a>
   <div class="{rot_cls}" id="rotator" aria-roledescription="carousel">{shots}<div class="dots">{dots}</div></div>
 </header>
 <script>(function(){{var r=document.getElementById("rotator");if(!r)return;var imgs=r.querySelectorAll("img"),dots=r.querySelectorAll(".dots i"),i=0,n=imgs.length;if(n<2)return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;function show(k){{imgs[i].classList.remove("on");dots[i].classList.remove("on");i=k%n;imgs[i].classList.add("on");dots[i].classList.add("on")}}var t=setInterval(function(){{show(i+1)}},5000);r.addEventListener("pointerenter",function(){{clearInterval(t)}});r.addEventListener("pointerleave",function(){{t=setInterval(function(){{show(i+1)}},5000)}});dots.forEach(function(d,k){{d.style.cursor="pointer";d.addEventListener("click",function(){{show(k)}})}})}})();</script>
@@ -217,7 +221,7 @@ def landing(key):
 <div class="verdicts">{verdicts}</div>
 <section class="privacy"><div class="privacy-card"><h2>{html.escape(t['privacy_h'])}</h2><p>{t['privacy_p']}</p></div></section>
 <section class="faq" id="faq"><h2 class="section-title">{html.escape(t['faq_title'])}</h2><div class="faq">{faq}</div></section>
-<div class="bottom-cta"><h2>{html.escape(t['cta_h'])}</h2><span class="cta pending">{html.escape(t['cta'])}</span></div>
+<div class="bottom-cta"><h2>{html.escape(t['cta_h'])}</h2><a class="cta" href="{STORE_URL[key]}">{html.escape(t['cta'])}</a></div>
 <footer>© 2026 FluentIn · <a href="/privacy/">{t['footer_privacy']}</a> · <a href="/terms/">{t['footer_terms']}</a> · <a href="/support/">{t['footer_support']}</a> · <a href="mailto:tautiu.dev+fluentin@gmail.com">tautiu.dev+fluentin@gmail.com</a></footer>
 </body></html>
 """
